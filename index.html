@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Portfolio placeholder." />
+		<meta name="description" content="Silas Lunsford — student developer, agentic programmer and open-source contributor. Contributions to openstudio, horizon and omalauncher, plus personal projects like winaudio and Flipper-Roku-App." />
 		<title>Silas Lunsford | Portfolio</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,18 +13,104 @@
 	</head>
 	<body>
 		<header class="site-header">
+			<a class="brand" href="#top">Silas Lunsford</a>
 			<nav class="nav-links" aria-label="Primary navigation">
+				<a href="#work">Work</a>
+				<a href="#about">About</a>
 			</nav>
+			<a class="nav-contact" href="#contact">Contact</a>
 		</header>
 
-		<main class="minimal-main" id="top">
-			<div class="minimal-pattern" aria-hidden="true"></div>
-			<section class="minimal-hero" aria-labelledby="hero-title">
-				<h1 id="hero-title">Silas Lunsford<span>.</span></h1>
-				<p class="minimal-intro">a teenager who enjoys cybersecurity</p>
+		<main id="top">
+			<section class="hero" aria-labelledby="hero-title">
+				<p class="hero-kicker">Student developer &amp; agentic programmer</p>
+				<h1 id="hero-title">Silas Lunsford<em>.</em></h1>
+				<div class="hero-bottom">
+					<p class="intro">A teenager who enjoys cybersecurity, low-level audio plumbing and Linux — <em>Omarchy</em>, btw. I contribute to open-source tools and ship my own projects.</p>
+					<div class="circle-link">
+						<a class="circle" href="#work">My work</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="work" aria-labelledby="work-title">
+				<div class="section-heading">
+					<p class="section-eyebrow">Recent work</p>
+					<h2 id="work-title">Open-source contributions &amp; projects</h2>
+				</div>
+
+				<ul class="project-list">
+					<li class="project-item project-lime">
+						<a href="https://github.com/Ember2819/openstudio" target="_blank" rel="noopener noreferrer">
+							<span class="tag">Contribution</span>
+							<h3>openstudio</h3>
+							<p>Open-source pattern-based DAW built with Electron. I auto-install prerequisites and assets before startup, built the CI workflow that releases Windows/Linux/macOS packages on every push, and added ARM64 builds with platform+arch artifact names.</p>
+						</a>
+					</li>
+					<li class="project-item project-coral">
+						<a href="https://github.com/ludovic111/horizon" target="_blank" rel="noopener noreferrer">
+							<span class="tag">Contribution</span>
+							<h3>horizon</h3>
+							<p>Minecraft: Java Edition 26.3 rewritten in Rust. I retuned the entity-shadow depth bias in the client to kill its rim flicker.</p>
+						</a>
+					</li>
+					<li class="project-item project-blue">
+						<a href="https://github.com/SimonSchubert/omalauncher" target="_blank" rel="noopener noreferrer">
+							<span class="tag">Contribution</span>
+							<h3>omalauncher</h3>
+							<p>Agentic Android launcher. I fixed the drawer so it can leave the keyboard down — a hardware keyboard keeps working for scrolling the apps rather than searching them.</p>
+						</a>
+					</li>
+					<li class="project-item art-grid">
+						<a href="https://github.com/sifi11" target="_blank" rel="noopener noreferrer">
+							<span class="tag">Personal</span>
+							<h3>winaudio</h3>
+							<p>Low-latency Windows guest audio over QEMU/KVM: an ASIO driver DLL + ivshmem kernel shim, a retuned PI loop, and underrun detection that distinguishes idle from real starvation.</p>
+						</a>
+					</li>
+					<li class="project-item">
+						<a href="https://github.com/sifi11/Flipper-Roku-App" target="_blank" rel="noopener noreferrer">
+							<span class="tag">Personal</span>
+							<h3>Flipper-Roku-App</h3>
+							<p>An app to make navigating Roku TVs easier on a Flipper Zero without going back and forth to buttons.</p>
+						</a>
+					</li>
+					<li class="project-item">
+						<a href="https://github.com/sifi11/Phishers-of-Men" target="_blank" rel="noopener noreferrer">
+							<span class="tag">Collab</span>
+							<h3>Phishers-of-Men</h3>
+							<p>A website for me and Ember2819.</p>
+						</a>
+					</li>
+				</ul>
+			</section>
+
+			<section class="about" aria-labelledby="about-title">
+				<div class="section-heading">
+					<p class="section-eyebrow">About</p>
+					<h2 id="about-title">A little background</h2>
+				</div>
+				<p class="about-copy">I'm Silas — a student developer and agentic programmer who loves Linux (Omarchy, btw). It's not vibe coding, it's <em>agentically accelerated</em> programming. Lately I've been contributing to openstudio, horizon and omalauncher, building a low-latency audio pipeline for Windows guests, and poking at whatever sits between software and hardware.</p>
+			</section>
+
+			<section class="contact" aria-labelledby="contact-title">
+				<div class="section-heading">
+					<p class="section-eyebrow">Contact</p>
+					<h2 id="contact-title">Let's build something</h2>
+				</div>
+				<p class="contact-copy">The best way to reach me is by email.</p>
+				<a class="contact-link" href="mailto:silaslunsford1@gmail.com">silaslunsford1@gmail.com</a>
+				<div class="contact-links">
+					<a class="circle-link" href="https://github.com/sifi11" target="_blank" rel="noopener noreferrer">
+						<span class="circle">GitHub</span>
+					</a>
+				</div>
 			</section>
 		</main>
 
-		<footer class="minimal-footer"><span>© <span id="year"></span> Silas Lunsford</span><span>More soon</span></footer>
+		<footer class="site-footer">
+			<span>© <span id="year">2026</span> Silas Lunsford</span>
+			<span>Contribution histories fetched from GitHub</span>
+		</footer>
 	</body>
 </html>
