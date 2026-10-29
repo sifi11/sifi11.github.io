@@ -8,7 +8,7 @@ if (year) {
 // with siblings (e.g. project cards) staggering in one by one.
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const targets = document.querySelectorAll(
-	".section-heading, .project-item, .about-copy, .contact-copy, .contact-link, .contact-links"
+	".section-heading, .project-item, .about-copy, .about-quote, .contact-copy, .contact-link, .contact-links"
 );
 
 if (!("IntersectionObserver" in window)) {
