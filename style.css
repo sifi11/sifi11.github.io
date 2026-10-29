@@ -108,8 +108,11 @@ h1 em, .about-copy em { color: var(--coral); font-style: normal; }
 	line-height: 1;
 	white-space: nowrap;
 	transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s var(--ease);
-	animation: fade-up .8s var(--ease) .65s backwards, float 6s ease-in-out 1.8s infinite;
+	animation: fade-up .8s var(--ease) .65s backwards;
 }
+/* Float the wrapper, not the button itself: a running transform animation on
+   .circle would override the :hover/:active transforms and they'd never apply. */
+.hero .circle-link { animation: float 6s ease-in-out 1.8s infinite; }
 .circle-link:hover .circle { background: var(--ink); color: var(--paper); transform: translateY(-4px) scale(1.04); }
 .circle-link:active .circle { transform: translateY(0) scale(.97); }
 
@@ -209,14 +212,14 @@ h2 { font-size: clamp(2rem, 5.5vw, 4.4rem); line-height: 1.02; letter-spacing: -
 .footer a { color: var(--ink); }
 
 /* ---------- Scroll reveal (classes added by script.js) ---------- */
-.reveal {
-	opacity: 0;
-	transform: translateY(30px);
-	transition: opacity .8s var(--ease), transform .8s var(--ease);
-	transition-delay: var(--delay, 0s);
-	will-change: opacity, transform;
+/* Reveal uses an animation, not a transition, so it never replaces the
+   elements' own transition declarations — hover lift, tag pop and card glow
+   keep their intended timing after the entrance animation has run. */
+.reveal { opacity: 0; }
+.reveal.is-visible {
+	opacity: 1;
+	animation: reveal-up .7s var(--ease) var(--delay, 0s) backwards;
 }
-.reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- Keyframes ---------- */
 @keyframes fade-up {
@@ -230,6 +233,10 @@ h2 { font-size: clamp(2rem, 5.5vw, 4.4rem); line-height: 1.02; letter-spacing: -
 @keyframes float {
 	0%, 100% { transform: translateY(0); }
 	50% { transform: translateY(-7px); }
+}
+@keyframes reveal-up {
+	from { opacity: 0; transform: translateY(30px); }
+	to { opacity: 1; transform: none; }
 }
 @keyframes bob {
 	0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -260,6 +267,6 @@ h2 { font-size: clamp(2rem, 5.5vw, 4.4rem); line-height: 1.02; letter-spacing: -
 		animation-iteration-count: 1 !important;
 		transition-duration: .01ms !important;
 	}
-	.reveal { opacity: 1; transform: none; transition: none; }
+	.reveal, .reveal.is-visible { opacity: 1; animation: none; }
 	html { scroll-behavior: auto; }
 }
