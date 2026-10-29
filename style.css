@@ -89,7 +89,7 @@ main { width: min(1080px, calc(100% - 48px)); margin: 0 auto; text-align: center
 	font-weight: 700;
 	animation: fade-up .8s var(--ease) .3s backwards;
 }
-h1 em, .about-copy em { color: var(--coral); font-style: normal; }
+h1 em, .about-quote em { color: var(--coral); font-style: normal; }
 .hero h1 em { display: inline-block; animation: bob 4.5s ease-in-out 2s infinite; }
 .hero-bottom { display: flex; flex-direction: column; align-items: center; gap: 26px; animation: fade-up .8s var(--ease) .5s backwards; }
 .intro { max-width: 560px; color: var(--muted); font-size: 1.05rem; line-height: 1.75; }
@@ -146,9 +146,21 @@ h2 { font-size: clamp(2rem, 5.5vw, 4.4rem); line-height: 1.02; letter-spacing: -
 	padding: 36px 28px;
 	background: rgba(240, 242, 235, .02);
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+	position: relative;
 	transition: transform .45s var(--ease), border-color .3s ease, box-shadow .4s ease, background .3s ease;
 }
-.project-item > a { display: flex; flex: 1; flex-direction: column; align-items: center; gap: 16px; min-width: 0; }
+/* Invisible overlay so the whole card is clickable without wrapping the
+   content in a single <a> — nested author links stay valid HTML and the
+   description <p> can never break out of the card. */
+.card-link {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	border-radius: inherit;
+}
 .tag {
 	display: inline-block;
 	padding: 5px 13px;
@@ -165,7 +177,9 @@ h2 { font-size: clamp(2rem, 5.5vw, 4.4rem); line-height: 1.02; letter-spacing: -
 .project-blue .tag { color: var(--blue); border-color: var(--blue); }
 .project-item h3 { font-size: 1.35rem; letter-spacing: -.04em; transition: color .3s ease, transform .45s var(--ease); }
 .project-item p { max-width: 42ch; color: var(--muted); font-size: .95rem; line-height: 1.7; }
-.project-item p a { transition: color .25s ease; }
+/* Author mentions inside the description must sit above the card overlay
+   (.card-link) to remain clickable. */
+.project-item p a { position: relative; z-index: 2; transition: color .25s ease; }
 .project-lime p a:hover { color: var(--lime); }
 .project-coral p a:hover { color: var(--coral); }
 .project-blue p a:hover { color: var(--blue); }
@@ -182,8 +196,7 @@ h2 { font-size: clamp(2rem, 5.5vw, 4.4rem); line-height: 1.02; letter-spacing: -
 /* ---------- About ---------- */
 .about { padding: 120px 0; border-top: 1px solid var(--line); }
 .about-copy { max-width: 640px; margin: 0 auto; color: var(--muted); font-size: 1.12rem; line-height: 1.85; }
-.about-copy br { display: none; } /* let the copy flow naturally when centered */
-.about-copy em { display: inline-block; margin: 18px 0; }
+.about-quote { margin: 18px 0 0; color: var(--muted); font-size: 1rem; }
 
 /* ---------- Contact ---------- */
 .contact { padding: 120px 0 130px; border-top: 1px solid var(--line); }
